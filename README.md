@@ -158,3 +158,21 @@ Example
 - `/` on its own is the root directory of the entire file system. `/` in `/Users` refers to the `root directory`.
 - A relative path specifies a location starting from the current working location.
 - `.` on its own means 'the current directory'. `..` means 'the directory above the current directory'.
+
+## Working with Files and Directories
+
+### Creating Directories
+
+- use `mkdir [newDirectoryName]` to create a new directory.
+- It will create a new directory in the current working directory.
+
+- We are currently in `/Users/joon.k/Desktop/shell-lesson-data`
+- `cd exercise-data/writing` will change directory to the `writing` folder in `exercise-data`
+- in `writing`, create a new directory called `thesis` by entering `mkdir thesis`.
+- `ls -F` command will list `LittleWomen.txt  haiku.txt  thesis/`, where `thesis` is an empty directory that's just been created.
+
+- It is possible to create a new directory with nested sub-directories using a single command with `-p`.
+  - `$ mkdir -p ../project/data ../project/results` will create a new directory called `project` in the previous (`..`) working directory, which also has two nested sub-directories named `data` and `results`.
+- `ls -FR ../project` will list the contents of the newly created `project` directory.
+
+### Naming Files and Directories
