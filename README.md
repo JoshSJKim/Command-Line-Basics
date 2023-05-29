@@ -90,3 +90,22 @@
 - This is because `cd` can only see into sub-directories.
 - Use `cd ..` to move up one directory.
 - Entering `cd` command any time in the shell will return to the home directory, which is useful when you get lost in the file system.
+
+- Note that directories could be strung together to reach the desired directory in one command.
+- `cd Desktop/shell-lesson-data/exercise-data` will directly change the directory to `exercise-data`.
+  - Here we can use `ls -F` to list the contents of `exercise-data` with the indication of the type of each content.
+
+- To move up a directory, as mentioned earlier, we could use `cd ..` to achieve this.
+- This is because we have been using `relative paths` until now.
+- It is possible to specify an `absolute path` to move to any directory in the file system by entering the exact location of the desired directory starting from the `root directory`, which can be done by entering the directory path starting with a `/`.
+- Use `pwd` to find out exactly where I am in the file system, and then enter the desired directory starting with the root directory.
+
+`cd /users/joon.k/Desktop/shell-directory`
+
+### Two More Shortcuts
+
+- tilde (`~`): means 'the current user's home directory' only if used at the beginning of the path
+  - if home directory is `/Users/joon.k`, `~/Desktop` is equivalent to `/Users/joon.k/Desktop`
+- dash(`-`): `cd -` will translate in to 'the previous directory'.
+  - Useful when moving back and forth from two directories.
+- Summary: `~` means home directory, `..` moves `up` the directory tree, `-` moves `back` to the previous directory.
