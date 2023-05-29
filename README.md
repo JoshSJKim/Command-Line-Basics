@@ -109,3 +109,23 @@
 - dash(`-`): `cd -` will translate in to 'the previous directory'.
   - Useful when moving back and forth from two directories.
 - Summary: `~` means home directory, `..` moves `up` the directory tree, `-` moves `back` to the previous directory.
+
+## General Syntax of a Shell Command
+
+Example
+
+`$ ls -F /`
+
+- `$` is the prompt (Not all shell have this syntax. The prompt should not be typed in)
+- `ls` is the command.
+- `-F` is the option
+- `/` is the argument
+
+- options and arguments are sometimes referred to as `parameters`.
+- A command can be called with more than one option and more than one argument
+- A command doesn't always require an argument or an option.
+- `options` are sometimes referred to as `switches` or `flags`.
+- Each component of a command must be separated with a space.
+- letter casing is also important
+  - `-s` will display size of files
+  - `-S` will sort the files and directories by size.
