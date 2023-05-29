@@ -142,3 +142,19 @@ Example
 - If `tab` is pressed again, it will display the files within that folder.
 - If `G` is pressed --> `ls north-pacific-gyre/g` and then `tab` is pressed, it will automatically append --> `ls north-pacific-gyre/goo` since all of the files that start with `g` in this folder share the first three characters 'goo'.
 - If `tab` is pressed once more, it will print all the files that begin with 'goo'.
+
+
+### Summary
+
+- The file system is responsible for managing information on the disk.
+- Information is stored in files, which are stored in directories (folders).
+- Directories can also store other directories to form a directory tree.
+- `pwd` prints the user's current working directory.
+- `ls` prints the contents of the current working directory.
+- `ls [path]` prints the contents of the specified path (without changing the current working directory).
+- `cd [path]` changes the current working directory.
+- Most commands take options that begin with a single `-`.
+- Directory names in a path are separated with `/`.
+- `/` on its own is the root directory of the entire file system. `/` in `/Users` refers to the `root directory`.
+- A relative path specifies a location starting from the current working location.
+- `.` on its own means 'the current directory'. `..` means 'the directory above the current directory'.
