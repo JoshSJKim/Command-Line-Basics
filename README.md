@@ -176,3 +176,15 @@ Example
 - `ls -FR ../project` will list the contents of the newly created `project` directory.
 
 ### Naming Files and Directories
+
+- It is important to create file and directory names that are easy to work with.
+
+- Do not use spaces
+  - spaces are used to separate arguments on the command line. It is better to avoid them in names of files and folders.
+  - Use `_` or `-`, or even camelCasing.
+- Do not begin with `-`
+  - Commands treat names beginning with `-` as options.
+- Stick with numbers, letters, period or 'full stop' (`.`), dash (`-`), and underscore (`_`).
+  - Many characters have special meaning in the command line and could cause unexpected results if used in a file or directory name.
+
+- If it is necessary to refer to names or folders that use spaces or special characters, surround the names in quotes (`""`)
