@@ -129,3 +129,16 @@ Example
 - letter casing is also important
   - `-s` will display size of files
   - `-S` will sort the files and directories by size.
+
+## Tab Completion
+
+- In my file system, I am currently in `/Users/joon.k/Desktop/shell-lesson-data`.
+- There are two more folders inside this directory `exercise-data` and `north-pacific-gyre`.
+- In order to list the contents of the `north-pacific-gyre` folder, we use the `ls` command.
+- But it is tiresome to always have to type out `north-pacific-gyre`.
+- Simply enter `ls nor` and hit the `tab` button, and the shell automatically completes the directory name.
+- This is called tab completion.
+- `ls north-pacific-gyre/` will be completed.
+- If `tab` is pressed again, it will display the files within that folder.
+- If `G` is pressed --> `ls north-pacific-gyre/g` and then `tab` is pressed, it will automatically append --> `ls north-pacific-gyre/goo` since all of the files that start with `g` in this folder share the first three characters 'goo'.
+- If `tab` is pressed once more, it will print all the files that begin with 'goo'.
