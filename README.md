@@ -219,6 +219,9 @@ Example
 - `$ mv thesis/quote.txt .` will move the renamed `quotes.txt` from the `thesis` directory to the current working directory (specified by `'.'`), which is the `writing` directory.
 - If you try to access `quotes.txt` in `thesis`, --> `$ ls thesis/quote.txt`, it would return `No such file or directory`.
 
+- Note: `ls` with a filename or a directory as an argument only lists the requested file or directory.
+  - This can be useful to confirm that the specified file or directory is present in the current working directory.
+
 ```CLI
 $ ls -F
   analyzed/ raw/                                    --> current working folder has two directories 'analyzed' and 'raw'
@@ -230,3 +233,18 @@ $ cd analyzed                                       --> change directory to 'ana
 In order to move the 'maltose.dat' and 'sucrose.dat' files to the 'raw' directory, use the following command
 
 `$ mv sucrose.dat maltose.dat ../raw` --> `..` will move the working directory up by one (the parent folder), and the second argument specifies which directory to put the specified files.
+
+## Copying Files and Directories
+
+### Copy a File and Save in another folder
+
+- `cp` command works similar to `mv`, except it copies a file instead of moving it.
+
+- `$ cp quotes.txt thesis/quotations.txt` will copy `quotes.txt` and save the copied file `quotations.txt` in the `thesis` directory.
+- `$ ls quotes.txt thesis/quotations.txt` will confirm that both files are present in the file system.
+
+### Copy a Directory and all its contents
+
+- Copy a directory and all its contents by using the `recursive` option `-r`, which is useful for backing up a folder.
+- `$ cp -r thesis thesis_backup` will create a copy of the `thesis` directory under the name `thesis_backup` and save it in the current working directory.
+- `$ ls thesis thesis_backup` will confirm that it is indeed a duplicate.
