@@ -78,7 +78,7 @@
 - In order to look at what is inside `shell-lesson-data/`, there are two methods.
   - `ls -F Desktop/shell-lesson-data` will simply list the contents of `shell-lesson-data` without changing the current working directory
   - `cd` (change directory) following by the target directory name will change the current working directory. (Like double-clicking a folder icon to open it)
-  - `cd shell-lesson-data` will change the CWD to 'shell-lesson-data'. Here we can use `ls` command to list the contents of the CWD 
+  - `cd shell-lesson-data` will change the CWD to 'shell-lesson-data'. Here we can use `ls` command to list the contents of the CWD
   - `exercise-data/  north-pacific-gyre/`
   - Note that you cannot jump directly into the `exercise-data/` from the `Desktop`.
     - `cd Desktop`
@@ -143,7 +143,6 @@ Example
 - If `G` is pressed --> `ls north-pacific-gyre/g` and then `tab` is pressed, it will automatically append --> `ls north-pacific-gyre/goo` since all of the files that start with `g` in this folder share the first three characters 'goo'.
 - If `tab` is pressed once more, it will print all the files that begin with 'goo'.
 
-
 ### Summary
 
 - The file system is responsible for managing information on the disk.
@@ -203,3 +202,31 @@ Example
   - `$ touch my_file.txt` will create a new blank `my_file.txt` file, which has a file size of 0 bytes.
   - In order to remove a file (not a directory), use the `rm` command
     - `$ rm my_file.txt` will remove the `my_file.txt` file from the `thesis` folder
+
+## Moving Files and Directories
+
+- The `mv` command can either `rename` or `move` a file or directory
+
+### Rename a File
+
+- `$ mv thesis/draft.txt thesis/quotes.txt` will change the name of `draft.txt` to `quotes.txt`.
+  - This command has the same effect as `renaming` a file or directory on a GUI environment.
+  - Note that `mv` will silently overwrite any existing file with the same name by default, which could lead to data loss. Use caution.
+  - However, `mv -i` ('i' for 'interactive') will trigger `mv` to request a confirmation.
+
+### Moving Folders
+
+- `$ mv thesis/quote.txt .` will move the renamed `quotes.txt` from the `thesis` directory to the current working directory (specified by `'.'`), which is the `writing` directory.
+- If you try to access `quotes.txt` in `thesis`, --> `$ ls thesis/quote.txt`, it would return `No such file or directory`.
+
+```CLI
+$ ls -F
+  analyzed/ raw/  --> current working folder has two directories 'analyzed' and 'raw'
+$ ls -F analyzed  --> 'analyzed' directory contains the following files.
+fructose.dat glucose.dat maltose.dat sucrose.dat 
+$ cd analyzed     --> change directory to 'analyzed'.
+```
+
+In order to move the 'maltose.dat' and 'sucrose.dat' files to the 'raw' directory, use the following command
+
+`$ mv sucrose.dat maltose.dat ../raw` --> `..` will move the working directory up by one (the parent folder), and the second argument specifies which directory to put the specified files.
