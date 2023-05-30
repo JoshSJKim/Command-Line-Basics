@@ -221,10 +221,10 @@ Example
 
 ```CLI
 $ ls -F
-  analyzed/ raw/  --> current working folder has two directories 'analyzed' and 'raw'
-$ ls -F analyzed  --> 'analyzed' directory contains the following files.
+  analyzed/ raw/                                    --> current working folder has two directories 'analyzed' and 'raw'
+$ ls -F analyzed                                    --> 'analyzed' directory contains the following files.
 fructose.dat glucose.dat maltose.dat sucrose.dat 
-$ cd analyzed     --> change directory to 'analyzed'.
+$ cd analyzed                                       --> change directory to 'analyzed'.
 ```
 
 In order to move the 'maltose.dat' and 'sucrose.dat' files to the 'raw' directory, use the following command
