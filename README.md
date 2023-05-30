@@ -188,3 +188,18 @@ Example
   - Many characters have special meaning in the command line and could cause unexpected results if used in a file or directory name.
 
 - If it is necessary to refer to names or folders that use spaces or special characters, surround the names in quotes (`""`)
+
+## Create a Text File
+
+- Open up a new file `draft.txt` with the `nano` text-editor in the desired directory by entering `$ nano draft.txt`
+- Enter some text in the opened text editor. When done, press `control + O (letter 'O')` to save.
+- You could choose the name of the file and press `return` or `enter` to save.
+- Press `control + X` to close the editor and return to the shell.
+- `nano` doesn't leave any output on the shell display screen after it exits. But `ls` command will show that `draft.txt` has been created in the `thesis` folder.
+
+- NOTE: `control` + `[key]` can be described as `control+x`, `control-x`, `Ctrl+X`, `Ctrl-X`, `^X`, or `C-x`
+
+- Another way to create a new file is `touch` command
+  - `$ touch my_file.txt` will create a new blank `my_file.txt` file, which has a file size of 0 bytes.
+  - In order to remove a file (not a directory), use the `rm` command
+    - `$ rm my_file.txt` will remove the `my_file.txt` file from the `thesis` folder
