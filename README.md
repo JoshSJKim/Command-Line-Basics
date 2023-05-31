@@ -248,3 +248,19 @@ In order to move the 'maltose.dat' and 'sucrose.dat' files to the 'raw' director
 - Copy a directory and all its contents by using the `recursive` option `-r`, which is useful for backing up a folder.
 - `$ cp -r thesis thesis_backup` will create a copy of the `thesis` directory under the name `thesis_backup` and save it in the current working directory.
 - `$ ls thesis thesis_backup` will confirm that it is indeed a duplicate.
+
+## Removing Files and Directories
+
+- Remove files by using the `rm` command
+- `$ rm quotes.txt` will remove the `quotes.txt` file from the file system, permanently.
+
+- Note that the shell environment does not have a trash bin. The removed files cannot be recovered.
+  - In order to ensure that only unwanted files are removed (not others by mistake), use the `-i` option to bring up a prompt to confirm removal.
+  - `$ rm -i thesis_backup/quotations.txt` will bring up the following prompt
+    - `rm: remove regular file 'thesis_backup/quotation.txt'? y` --> press `Y` to confirm removal or `N` to cancel removal.
+
+- `rm` command on its own, by default, only removes 'files', not 'directories'.
+- `rm` can remove a directory and all of its contents with the use of the recursive option `-r`.
+  - This also removes the directory without confirmation prompts.
+
+- Whenever removing a file or a directory, make it a habit to include the `-i` option to confirm removal.
