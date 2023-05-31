@@ -264,3 +264,24 @@ In order to move the 'maltose.dat' and 'sucrose.dat' files to the 'raw' director
   - This also removes the directory without confirmation prompts.
 
 - Whenever removing a file or a directory, make it a habit to include the `-i` option to confirm removal.
+
+## Operations with Multiple Files and Directories
+
+- Copying or moving multiple files at once can be done by providing a list of individual file names, OR specifying a naming pattern using `wildcards`.
+- `Wildcards` are special characters that can be used to represent unknown characters or sets of characters when navigating the file system.
+
+### Copy with multiple file names
+
+- You can copy multiple files and save it in a different directory by using `$ cp someDir/[filename.ext] ... someOtherDir/`
+- It doesn't matter how many files you copy, as long as the last argument is a directory that the copied files will be saved in.
+
+### Using Wildcards for Accessing Multiple Files at Once
+
+- `*` represents zero or more other characters.
+  - For example, `*.pdf` represents all files in a directory that has the `.pdf` extension.
+  - `p*.pdb` represents all files with a `.pdb` extension that begins with the letter `p`.
+- `?` represents exactly one character
+  - For example, `?ethane.pdb` represents all files with a `.pdb` extension with a file name that ends in `ethane` and begins with any letter.
+
+- Wildcards can be used in combination.
+  - `???ane.pdb` represents all files with a `.pdb` extension that begin with three characters and ends in `ane`
