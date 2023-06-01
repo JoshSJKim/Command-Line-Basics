@@ -1,0 +1,15 @@
+## Introduction
+
+- With the knowledge of few basic commands, we could now look at the shell's most powerful feature: The ability to combine existing programs in new ways.
+
+### wc (Word Count)
+
+- in `~/Desktop/shell-lesson-data/exercise-data/alkanes`, entering the command `$ wc cubane.pdb` will list the number of lines words, and characters in files.
+  - `20 156 1158 cubane.pdb`
+- `$ wc *.pdb` will list count information of all files in the current working directory with a `.pdb` extension, and it also includes the `total` number of all counts in the last line of the output.
+- `-l` option will list only the `line count`
+- `-m` option will list only the `character count`
+- `-w` option will list only the `word count`
+
+- If the command is supposed to process a file but a file to be processed is not specified, for example `$ wc -l`, `wc` assumes it is supposed to process input given at the command prompt (in other words, it is actively doing nothing, waiting for an input).
+- If you are stuck in this state, press `Ctrl+C`.
