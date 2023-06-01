@@ -13,3 +13,24 @@
 
 - If the command is supposed to process a file but a file to be processed is not specified, for example `$ wc -l`, `wc` assumes it is supposed to process input given at the command prompt (in other words, it is actively doing nothing, waiting for an input).
 - If you are stuck in this state, press `Ctrl+C`.
+
+## Capturing Output From Commands
+
+### Redirect (`>`)
+
+- The greater-than symbol is a `redirect` command.
+- It tells the shell to `redirect` the command's output to a file instead of printing it on the screen (This command does not print a screen output since the output has been redirected to a specified file)
+
+`$ wc -l *.pdb > lengths.txt`
+
+- The above command will count the number of lines in all files with the `.pdb` extension in the current working directory and redirect (`>`) the output to a file named 'lengths.txt'.
+- If such file does not exist, the shell will create the file at the time of redirect.
+- If it already exists, the existing file will be 'silently' overwritten. (possible data loss. Use caution with `redirect`)
+
+- Use the `cat` command (derived from 'concatenate') to print the contents of the specified file. If there are multiple files, the `cat` command will print the contents of the file one after the other.
+- One disadvantage of `cat` is that it dumps the entire file(s) on the screen.
+- In order to view the output page one page at a time, use the `less` command --> `less lengths.txt`
+  - This command will display only a screenful of screen at a time.
+    - `Spacebar` to move down the screen
+    - `B` to move up the screen.
+    - `Q` to quit
