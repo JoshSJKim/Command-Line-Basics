@@ -285,3 +285,19 @@ In order to move the 'maltose.dat' and 'sucrose.dat' files to the 'raw' director
 
 - Wildcards can be used in combination.
   - `???ane.pdb` represents all files with a `.pdb` extension that begin with three characters and ends in `ane`
+
+- Note: When the shell sees a wildcard, it expands the wildcard to create a list of matching filenames PRIOR TO running the preceding command.
+- If a wildcard does not find a match, it will pass the expression as an argument to the command as is.
+
+## KeyPoints
+
+- `cp [oldName] [newName]` copies a file.
+- `mk [path]` creates a new directory
+- `mv [oldName] [newName]` renames (or moves) a file or directory
+- `rm [path]` deletes a file (remember `-r` option to delete a directory and `-i` option to provide a prompt for deletion)
+- `*` matches ZERO or more characters in a filename
+- `?` matches any single character in a filename
+- Remember there are various ways of describing the `control` key (`Control`, `Ctrl`, `^`)
+- The shell does not have a trash bin (remember the `-i` option)
+- Most file names include an extension, but it is not necessary.
+- 
