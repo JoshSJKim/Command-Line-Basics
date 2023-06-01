@@ -1,0 +1,142 @@
+## Working with Files and Directories
+
+### Creating Directories
+
+- use `mkdir [newDirectoryName]` to create a new directory.
+- It will create a new directory in the current working directory.
+
+- We are currently in `/Users/joon.k/Desktop/shell-lesson-data`
+- `cd exercise-data/writing` will change directory to the `writing` folder in `exercise-data`
+- in `writing`, create a new directory called `thesis` by entering `mkdir thesis`.
+- `ls -F` command will list `LittleWomen.txt  haiku.txt  thesis/`, where `thesis` is an empty directory that's just been created.
+
+- It is possible to create a new directory with nested sub-directories using a single command with `-p`.
+  - `$ mkdir -p ../project/data ../project/results` will create a new directory called `project` in the previous (`..`) working directory, which also has two nested sub-directories named `data` and `results`.
+- `ls -FR ../project` will list the contents of the newly created `project` directory.
+
+### Naming Files and Directories
+
+- It is important to create file and directory names that are easy to work with.
+
+- Do not use spaces
+  - spaces are used to separate arguments on the command line. It is better to avoid them in names of files and folders.
+  - Use `_` or `-`, or even camelCasing.
+- Do not begin with `-`
+  - Commands treat names beginning with `-` as options.
+- Stick with numbers, letters, period or 'full stop' (`.`), dash (`-`), and underscore (`_`).
+  - Many characters have special meaning in the command line and could cause unexpected results if used in a file or directory name.
+
+- If it is necessary to refer to names or folders that use spaces or special characters, surround the names in quotes (`""`)
+
+## Create a Text File
+
+- Open up a new file `draft.txt` with the `nano` text-editor in the desired directory by entering `$ nano draft.txt`
+- Enter some text in the opened text editor. When done, press `control + O (letter 'O')` to save.
+- You could choose the name of the file and press `return` or `enter` to save.
+- Press `control + X` to close the editor and return to the shell.
+- `nano` doesn't leave any output on the shell display screen after it exits. But `ls` command will show that `draft.txt` has been created in the `thesis` folder.
+
+- NOTE: `control` + `[key]` can be described as `control+x`, `control-x`, `Ctrl+X`, `Ctrl-X`, `^X`, or `C-x`
+
+- Another way to create a new file is `touch` command
+  - `$ touch my_file.txt` will create a new blank `my_file.txt` file, which has a file size of 0 bytes.
+  - In order to remove a file (not a directory), use the `rm` command
+    - `$ rm my_file.txt` will remove the `my_file.txt` file from the `thesis` folder
+
+## Moving Files and Directories
+
+- The `mv` command can either `rename` or `move` a file or directory
+
+### Rename a File
+
+- `$ mv thesis/draft.txt thesis/quotes.txt` will change the name of `draft.txt` to `quotes.txt`.
+  - This command has the same effect as `renaming` a file or directory on a GUI environment.
+  - Note that `mv` will silently overwrite any existing file with the same name by default, which could lead to data loss. Use caution.
+  - However, `mv -i` ('i' for 'interactive') will trigger `mv` to request a confirmation.
+
+### Moving Folders
+
+- `$ mv thesis/quote.txt .` will move the renamed `quotes.txt` from the `thesis` directory to the current working directory (specified by `'.'`), which is the `writing` directory.
+- If you try to access `quotes.txt` in `thesis`, --> `$ ls thesis/quote.txt`, it would return `No such file or directory`.
+
+- Note: `ls` with a filename or a directory as an argument only lists the requested file or directory.
+  - This can be useful to confirm that the specified file or directory is present in the current working directory.
+
+```CLI
+$ ls -F
+  analyzed/ raw/                                    --> current working folder has two directories 'analyzed' and 'raw'
+$ ls -F analyzed                                    --> 'analyzed' directory contains the following files.
+fructose.dat glucose.dat maltose.dat sucrose.dat 
+$ cd analyzed                                       --> change directory to 'analyzed'.
+```
+
+In order to move the 'maltose.dat' and 'sucrose.dat' files to the 'raw' directory, use the following command
+
+`$ mv sucrose.dat maltose.dat ../raw` --> `..` will move the working directory up by one (the parent folder), and the second argument specifies which directory to put the specified files.
+
+## Copying Files and Directories
+
+### Copy a File and Save in another folder
+
+- `cp` command works similar to `mv`, except it copies a file instead of moving it.
+
+- `$ cp quotes.txt thesis/quotations.txt` will copy `quotes.txt` and save the copied file `quotations.txt` in the `thesis` directory.
+- `$ ls quotes.txt thesis/quotations.txt` will confirm that both files are present in the file system.
+
+### Copy a Directory and all its contents
+
+- Copy a directory and all its contents by using the `recursive` option `-r`, which is useful for backing up a folder.
+- `$ cp -r thesis thesis_backup` will create a copy of the `thesis` directory under the name `thesis_backup` and save it in the current working directory.
+- `$ ls thesis thesis_backup` will confirm that it is indeed a duplicate.
+
+## Removing Files and Directories
+
+- Remove files by using the `rm` command
+- `$ rm quotes.txt` will remove the `quotes.txt` file from the file system, permanently.
+
+- Note that the shell environment does not have a trash bin. The removed files cannot be recovered.
+  - In order to ensure that only unwanted files are removed (not others by mistake), use the `-i` option to bring up a prompt to confirm removal.
+  - `$ rm -i thesis_backup/quotations.txt` will bring up the following prompt
+    - `rm: remove regular file 'thesis_backup/quotation.txt'? y` --> press `Y` to confirm removal or `N` to cancel removal.
+
+- `rm` command on its own, by default, only removes 'files', not 'directories'.
+- `rm` can remove a directory and all of its contents with the use of the recursive option `-r`.
+  - This also removes the directory without confirmation prompts.
+
+- Whenever removing a file or a directory, make it a habit to include the `-i` option to confirm removal.
+
+## Operations with Multiple Files and Directories
+
+- Copying or moving multiple files at once can be done by providing a list of individual file names, OR specifying a naming pattern using `wildcards`.
+- `Wildcards` are special characters that can be used to represent unknown characters or sets of characters when navigating the file system.
+
+### Copy with multiple file names
+
+- You can copy multiple files and save it in a different directory by using `$ cp someDir/[filename.ext] ... someOtherDir/`
+- It doesn't matter how many files you copy, as long as the last argument is a directory that the copied files will be saved in.
+
+### Using Wildcards for Accessing Multiple Files at Once
+
+- `*` represents zero or more other characters.
+  - For example, `*.pdf` represents all files in a directory that has the `.pdf` extension.
+  - `p*.pdb` represents all files with a `.pdb` extension that begins with the letter `p`.
+- `?` represents exactly one character
+  - For example, `?ethane.pdb` represents all files with a `.pdb` extension with a file name that ends in `ethane` and begins with any letter.
+
+- Wildcards can be used in combination.
+  - `???ane.pdb` represents all files with a `.pdb` extension that begin with three characters and ends in `ane`
+
+- Note: When the shell sees a wildcard, it expands the wildcard to create a list of matching filenames PRIOR TO running the preceding command.
+- If a wildcard does not find a match, it will pass the expression as an argument to the command as is.
+
+## KeyPoints
+
+- `cp [oldName] [newName]` copies a file.
+- `mk [path]` creates a new directory
+- `mv [oldName] [newName]` renames (or moves) a file or directory
+- `rm [path]` deletes a file (remember `-r` option to delete a directory and `-i` option to provide a prompt for deletion)
+- `*` matches ZERO or more characters in a filename
+- `?` matches any single character in a filename
+- Remember there are various ways of describing the `control` key (`Control`, `Ctrl`, `^`)
+- The shell does not have a trash bin (remember the `-i` option)
+- Most file names include an extension, but it is not necessary.
