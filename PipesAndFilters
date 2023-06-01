@@ -36,3 +36,32 @@
     - `Spacebar` to move down the screen
     - `B` to move up the screen.
     - `Q` to quit
+
+## Filtering Output
+
+### Sort
+
+- the `sort` command by default sorts data alphanumerically, which may cause some problems if we're dealing with numerical data.
+- use the `-n` option to sort numerical data
+
+- `$ sort -n lengths.txt` will list the sorted results on the screen. It does not modify the file itself. It simply prints the results.
+
+- Just like the output data from `$ wc *.pdb` was redirected to `lengths.txt`, the output data from `$ sort -n lengths.txt` can be redirected to a new file
+
+`$ sort -n lengths.txt > sorted-lengths.txt`
+
+- From here, we could use the `head` command to print a desired number of information on the screen.
+
+- `$ head -n 1 sorted-lengths.txt` will list the first line of the file. The number of lines to be displayed can be specified after the `-n` option
+
+NOTE: Do not redirect an output data to the same file. This may lead to incorrect results or lost data.
+
+### `>>` (Append)
+
+- Redirect operator (`>`) overwrites data to a specified file.
+- The `append (>>)` operator works similarly (in that it could create a new file to save to) but rather than overwriting, it appends the new data to a specified file if it already exists.
+
+### Heads or Tails
+
+- Previous exercise explained how the `head` command works. It prints lines from the start of the file.
+- `tail` command works in the opposite manner. It prints lines from the end of the file.
