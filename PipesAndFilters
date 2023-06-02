@@ -65,3 +65,22 @@ NOTE: Do not redirect an output data to the same file. This may lead to incorrec
 
 - Previous exercise explained how the `head` command works. It prints lines from the start of the file.
 - `tail` command works in the opposite manner. It prints lines from the end of the file.
+
+### Passing Output to Another Command
+
+- Use `pipes` to eliminate the need for multiple 'intermediate' files (`sorted-lengths.txt` in the previous example) using redirect
+- `|` tells the shell to use the output of the command on the left as the input to the command on the right.
+
+`$ sort -n lengths.txt | head -n 1` --> sort the contents of lengths.txt in numerical order and return the first line of the sorted contents.
+
+### Combining Multiple Commands
+
+- Multiple commands can be chained together to get the result from the previous example without any intermediate files.
+
+`$ wc -l *.pdb | sort -n`
+
+- Retrieve the line count from all files with the extension .pdb and sort it in a numerical order.
+
+`$ wc -l *.pdb | sort -n | head -n 1`
+
+- Return the first line of the sorted data.
