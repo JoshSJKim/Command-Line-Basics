@@ -84,3 +84,31 @@ NOTE: Do not redirect an output data to the same file. This may lead to incorrec
 `$ wc -l *.pdb | sort -n | head -n 1`
 
 - Return the first line of the sorted data.
+
+### Pipe Construction
+
+- `cut` command is used to remove or 'cut out' a section of each line in a file.
+- It expects the lines to be separated into columns by a `tab` character.
+- A character used in this manner is called a `delimiter`.
+
+- `cut -d , -f 2 animals.csv`
+
+- In the above command, `-d` option specifies the delimiter `,`, and `-f` option specifies the second (`2`) field (column) of each line in `animals.csv`.
+
+- `uniq` command filters out ADJACENT matching lines in a file.
+- In order to find out the unique names in a file data, `uniq` can be used in the following manner
+
+- `cut -d , -f 2, animals.csv | sort | uniq` --> this command will print the unique items in a file data.
+- Use the `-c` option with `uniq` to find the count of each item in the file data.
+
+### Summary
+
+- `wc` counts lines, words, and characters of its inputs
+- `cat` displays the contents of its inputs
+- `sort` sorts inputs
+- `head` displays the first 10 lines of its input
+- `tail` displays the las 10 lines of its input
+- `command > [file]` redirects a command's output to a specified file (overwrites existing content, or creates a new file if the file does not exist)
+- `command >> [file]` appends command's output to a specified file.
+- `[first] | [second]` is a pipeline: output of the first command is used as the input of the second command
+- Best way to use the shell is to use pipes to combine simple single-purpose programs (filters)
