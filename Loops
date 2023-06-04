@@ -1,0 +1,49 @@
+# Part 5
+
+## Loops
+
+- `Loops` are a programming construct that allows a command or set of commands to be repeated for each item in a list.
+- It is key to improved productivity through automation.
+- Similar to `wildcards` and `tab completion`, `loops` also reduce the amount of typing required (also reducing typing mistakes)
+
+- Below is a pseudo-code for a `for` loop used in the shell
+
+```zsh
+# The word "for" indicates the beginning of a 'for-loop' command
+for 'thing' in 'list-of-things'
+# The word 'do' indicates the start of job execution list
+do
+    # Indentation within a loop is not required, but improves readability
+    operation_using/command $thing
+# The word "done" indicates the end of a loop
+done
+```
+
+- Below is an actual example of a for loop applied on ~/Desktop/shell-lesson-data/exercise-data/creatures
+
+```zsh 
+$ for filename in basilisk.dat minotaur.dat unicorn.dat
+> do                                    # Note that 'shift + Enter' can be used to write multiline commands
+>     echo $filename                    # Or use a semi-colon to separate each line of command
+>     head -n 2 $filename | tail -n 1   # In this command 'filename' is assigned as a variable by putting a '$' before it.
+> done
+```
+
+- The above command will generate the following output
+
+```zsh
+basilisk.dat
+CLASSIFICATION: basiliscus vulgaris
+minotaur.dat
+CLASSIFICATION: bos hominus
+unicorn.dat
+CLASSIFICATION: equus monoceros
+```
+
+- Note that the `$` symbol and the `>` symbol has different meanings under different circumstances.
+- If the shell prints `$` or `>`, it is expecting an input from the user, which means the symbol is a prompt.
+- If the user types `$` or `>`, it is an instruction entered by the user for the shell to redirect or retrieve a value of a variable.
+
+- Another thing to note is that it is possible to put the variable names in curly braces to clearly indicate the variable name.
+- `$filename` is equivalent to `${filename}`.
+- Remember to name variables that are relevant to the reader's understanding. It is better practice.
