@@ -173,7 +173,7 @@ for datafile in NENE*A.txt NENE*B.txt
 
 #### Others
 
-- `!!` has the same funtion as the `up` cursor.
+- `!!` has the same function as the `up` cursor.
 - `!$` retrieves the last word of the last command.
   - for example, after `bash goostats.sh NEN01729B.txt stats-NENE01729B.txt`, type `less !$` to look at the file `stats-NENE01729B.txt`.
 
