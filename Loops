@@ -75,3 +75,84 @@ for database in *.pdb
 
 - The above code uses the `>>` append operator.
 - It will concatenate the data content of each file in the same directory path to a newly created file called 'all.pdb`.
+
+### Using a Loop to Save Backup Files
+
+```zsh
+for filename in *.dat   # Iterate through all filenames that have .dat extension
+  do
+      cp $filename original-$filename # Make a copy of the $filename with a new name 'original-$filename'
+  done
+```
+
+- Since the `cp` command does not normally produce any output on the shell screen, it is difficult to know fi the loop is working properly.
+- We could use the `echo` command as a debugging tool to check if the output of the loop will be what is expected, without actually running the command.
+
+```zsh
+for filename in *.dat
+  do
+    echo $filename original-$filename
+  done
+```
+
+- The above command will print the following
+
+```zsh
+cp basilisk.dat original-basilisk.dat
+cp minotaur.dat original-minotaur.dat
+cp unicorn.dat original-unicorn.dat
+```
+
+- We could confirm that the output is what is expected. Go ahead and remove the `echo` and execute the loop.
+
+### How to Run Shell Scripts in a Loop
+
+- Using `~/Desktop/shell-lesson-data/north-pacific-gyre` as an example, we want to run the `goostats.sh` shell script file included in the `north-pacific-gyre` directory.
+- The script calculates some stats from the `.txt` files in the directory. It takes to arguments.
+  - input file (raw data)
+  - output file (to store calculated stats)
+
+- Make sure to select the right input files (files that end in 'A' or 'B', not 'Z')
+- Once in the correct directory, run the following loop
+
+```zsh
+for datafile in NENE*A.txt NENE*B.txt
+  do
+      echo $datafile
+  done
+```
+
+- This will print all `.txt` files that begin with `NENE` and end in `A` or `B`, with zero or more of any characters in between.
+
+- We can use the above for loop statement as a base to make it `do` something else. We need to create an output file, where the calculated stats will be stored.
+- Use `echo` again to make sure that the loop will do what it is expected to do.
+
+```zsh
+for datafile in NENE*A.txt NENE*B.txt
+  do
+      echo $datafile stats-$datafile
+  done
+```
+
+- This will print the `$datafile` name, as well as its corresponding output file name.
+- We haven't even touched the `goostats.sh` file yet, but it is ready to run.
+
+- Use the 'up' cursor to redisplay the previous command entered.
+  - It will be displayed in a single line, separated by semi-colons.
+  - Navigate to the `echo` command with the cursor and replace it with `bash goostats.sh` (or `zsh goostats.sh` in my case, but it doesn't really matter).
+- But this will not print anything to the shell screen. You can't really tell if the loop is running properly, or running at all, and how long it takes.
+- Add `echo $datafile` right after `do` in order to print what is going on as the loop iterates. It will serve as a debugger.
+- NOTE: If at anytime you are not sure if the loop or command is running properly, exit the loop by entering `Ctrl + C`
+
+```zsh
+for datafile in NENE*A.txt NENE*B.txt
+  do
+      echo $datafile
+      bash $datafile stats-$datafile
+  done
+```
+
+- The above code will run the shell script on each of the specified files in the directory and store its output data in `stats-$datafile`, which will be saved int he same directory.
+- Use `$ cat NENE[any file].txt` to check if the output is good.
+
+- NOTE: Use `Ctrl + A` to move to the beginning of a line and `Ctrl + E` to move to the end of a line.
