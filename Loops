@@ -156,3 +156,49 @@ for datafile in NENE*A.txt NENE*B.txt
 - Use `$ cat NENE[any file].txt` to check if the output is good.
 
 - NOTE: Use `Ctrl + A` to move to the beginning of a line and `Ctrl + E` to move to the end of a line.
+
+### Other Methods to Recall Previous Commands
+
+#### History
+
+- use the `history` command to retrieve a specified number of previously entered commands
+
+- `$ history | tail -n 5` will recall the previous 5 commands that have been entered.
+- If you identify a command that you need repeating, simply enter `! + commandLineNumber`
+
+#### Ctrl + R
+
+- `Ctrl + R` opens up a 'history search mode' and finds the most recent command in the history that matches the text entered.
+- Press `Ctrl + R` one or more times to search for earlier matches. Then use the cursor to navigate and edit the command, and hit `Return` to execute.
+
+#### Others
+
+- `!!` has the same funtion as the `up` cursor.
+- `!$` retrieves the last word of the last command.
+  - for example, after `bash goostats.sh NEN01729B.txt stats-NENE01729B.txt`, type `less !$` to look at the file `stats-NENE01729B.txt`.
+
+### Nested Loops
+
+- You can nest loops
+
+```zsh
+for species in cubane ethane methane
+do
+    for temperature 25 30 37 40
+    do
+        mkdir $species-$temperature
+    done
+done
+```
+
+- The above loop will create directories for each $species in each $temperature group
+
+## Summary
+
+- A `for` loop repeats commands once for every 'thing' in a list
+- Every `for` loop needs a variable to refer to the 'thing' it is currently operating on.
+- Use `$name` or `${name}` to expand a variable (get its value)
+- Do not use spaces, quotes, wildcard characters in filenames (it'll just cause headaches)
+- Use the `up` cursor to redisplay previous commands.
+- Use `Ctrl + R` to search for previous commands
+- Use `history` command to display recent commands and retrieve using the line number
