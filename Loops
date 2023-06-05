@@ -21,7 +21,7 @@ done
 
 - Below is an actual example of a for loop applied on ~/Desktop/shell-lesson-data/exercise-data/creatures
 
-```zsh 
+```zsh
 $ for filename in basilisk.dat minotaur.dat unicorn.dat
 > do                                    # Note that 'shift + Enter' can be used to write multiline commands
 >     echo $filename                    # Or use a semi-colon to separate each line of command
@@ -47,3 +47,31 @@ CLASSIFICATION: equus monoceros
 - Another thing to note is that it is possible to put the variable names in curly braces to clearly indicate the variable name.
 - `$filename` is equivalent to `${filename}`.
 - Remember to name variables that are relevant to the reader's understanding. It is better practice.
+
+### Saving to a File in a Loop
+
+- There are two ways of saving to a file in a loop.
+- You could use the `>` redirect, or `>>` append.
+
+```zsh
+for alkanes in *.pdb
+  do
+    echo $alkanes
+    cat $alkanes > alkanes.pdb
+  done
+```
+
+- The above code uses the `>` redirect operator to create a new file called `alkanes.pdb`.
+- It will display the name of each file in `~/Desktop/shell-lesson-data/exercise-data/alkanes` on the shell screen
+- Then it will write the data contents of each file to the newly created file called `alkanes.pdb`.
+- However, since `>` redirect overwrites the previous data, the final result of `alkanes.pdb` after the loop will only contain the data from the last file iterated.
+
+```zsh
+for database in *.pdb
+  do
+    cat $database >> all.pdb
+  done
+```
+
+- The above code uses the `>>` append operator.
+- It will concatenate the data content of each file in the same directory path to a newly created file called 'all.pdb`.
