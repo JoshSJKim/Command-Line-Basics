@@ -23,3 +23,20 @@
 
 - Once the `.sh` file is saved in the directory, execute the command by entering the following
   - `$ bash middle.sh` or `$ zsh middle.sh`, both works identically in my case.
+
+`NOTE: When writing shell script, make sure to use a plain text editor, or save files as plain text`
+
+### Add Versatility
+
+- `middle.sh` is designated to run only on `octane.pdb` file.
+- Make the shell script more versatile by adding a `variable`
+
+`head -n 15 "$1" | tail -n 5`
+
+- `$1` is a special variable inside a shell script that means 'the first filename (or argument) on the command line'
+- Run the script by adding a specific argument.
+
+- `$ bash middle.sh octane.pdb` or `$ bash middle.sh pentane.pdb`
+
+- Note: `$1` is surrounded by double quotes just in case the filename passed as the argument contains spaces.
+
