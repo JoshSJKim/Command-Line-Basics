@@ -40,3 +40,35 @@
 
 - Note: `$1` is surrounded by double quotes just in case the filename passed as the argument contains spaces.
 
+### Add More Versatility
+
+- You can assign multiple 'special' variables to the command.
+- `$1`, `$2`, `$3` refers to first, second, and third command line arguments, respectively.
+
+- The following is a modified version of the shell script used in the previous exercise, which will use special variables to define the range of lines to be passed to `head` and `tail`.
+
+`head -n "$2" "$1" | tail -n "$3"`
+
+- Using the shell script above, we could now run the following
+
+`$ bash middle.sh pentane.pdb 15 5`
+
+- `$1`: pentane.pdb
+- `$2`: 15
+- `$3`: 5
+
+### Add Comments to Shell Scripts
+
+- Add comments to the shell script to provide a brief explanation of the script file.
+- This is useful for helping people (and yourself) understand the usage of the script.
+- In the shell, comments can be written by using the `#` symbol, and the comment runs to the end of the line
+- `#` is required for each comment line. The computer ignores the comments.
+
+```zsh
+# Select lines from the middle of a file.
+# Usage: bash middle.sh filename end_line_num num_lines
+head -n "$2" "$1" | tail -n "$3"
+```
+
+- Note: It is important to update the comments as necessary when script edits are made.
+
