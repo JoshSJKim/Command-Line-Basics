@@ -1,0 +1,25 @@
+# Part 6
+
+## Shell Scripts
+
+- Take frequently repeated commands and save them in files to rerun the saved operations as needed by typing a single command.
+- These saved commands are called `shell scripts`, but remember that these are actually small programs.
+
+- Some advantages of using `shell scripts`.
+  - Increased efficiency
+  - Improved accuracy (not having to worry about typos by re-entering same commands repeatedly)
+  - Can be shared with colleagues if multiple people are working on a single project (improved consistency)
+
+### Writing Shell Scripts
+
+- Use the `nano` text-editor in the shell to create a `.sh` file in the desired directory (`alkanes` directory is used for this example)
+  - `nano middle.sh` will open up the text editor on the shell screen
+  - Write the necessary commands and `ctrl + O` save (press enter) and `ctrl + x` to close the editor.
+    - `head -n 15 octane.pdb | tail -n 5`
+    - This command will retrieve the data lines 11 to 15 in the `octane.pdb` file
+  - If the file does not exist, it will be created.
+
+### Executing Shell Scripts
+
+- Once the `.sh` file is saved in the directory, execute the command by entering the following
+  - `$ bash middle.sh` or `$ zsh middle.sh`, both works identically in my case.
