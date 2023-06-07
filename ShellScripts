@@ -72,3 +72,23 @@ head -n "$2" "$1" | tail -n "$3"
 
 - Note: It is important to update the comments as necessary when script edits are made.
 
+### Process Multiple Files
+
+- If it is necessary to process multiple unknown files in a single pipeline, we cannot use `$1`, `$2`, etc. since the arguments are unknown.
+- use `$@`, which means 'all the command-line arguments to the shell script'.
+
+- create a shell script file called `sorted.sh`
+
+`nano sorted.sh`
+
+```zsh
+# Sort files by their length.
+# Usage: bash sorted.sh one_or_more_filenames
+wc -l "$@" | sort -n
+```
+
+- `wc -l` will count the lines of each file that corresponds to the arguments passed, then it will sort the processed files in numerical order (`sort -n`)
+
+`bash sorted.sh *.pdb ../creatures/*.dat`
+
+- The above command will execute `sorted.sh` on all files that have `.pdb` extension in the current working directory, as well as all files that have `.dat` file extension in the `creatures` directory (`..` moves up one directory)
