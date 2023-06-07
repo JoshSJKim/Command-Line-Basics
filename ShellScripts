@@ -131,3 +131,5 @@ done
 
 - NOTE: The shell ALWAYS adds commands to the log BEFORE running it. This is because if a command causes something to crash or hang, it would be useful to know what that command was for investigative purposes.
 
+- In practice, shell scripts are developed by running commands at the shell prompt a few times to ensure that the commands are working as intended.
+- Once the commands deem 'fool-proof', `history` command can be used to recall the desired commands to be saved to a script file.
