@@ -92,3 +92,42 @@ wc -l "$@" | sort -n
 `bash sorted.sh *.pdb ../creatures/*.dat`
 
 - The above command will execute `sorted.sh` on all files that have `.pdb` extension in the current working directory, as well as all files that have `.dat` file extension in the `creatures` directory (`..` moves up one directory)
+
+Another Example
+
+```zsh
+$ nano species.sh
+
+# Script to find unique species in .csv files where species is the second data field.
+# This script accepts any number of file names as command line argument.
+
+# Loop over all files
+for file in $@
+do
+    echo "Unique species in $file:"
+    # Extract species names
+    cut -d , -f 2 $file | sort | uniq
+done
+```
+
+### Use 'history' to Create A Script
+
+- If you've written a few lines of commands to accomplish something, and it seems worth saving for later purposes, use the `history` command to recall previous lines of commands and save them to a script file.
+
+`$ history | tail -n 5 > redo-figure-3.sh`
+
+- `redo-figure-3.sh` will now contain the following (this is just an example)
+
+```zsh
+297 bash goostats.sh NENE01729B.txt stats-NENE01729B.txt
+298 bash goodiff.sh stats-NENE01729B.txt /data/validated/01729.txt > 01729-differences.txt
+299 cut -d ',' -f 2-3 01729-differences.txt > 01729-time-series.txt
+300 ygraph --format scatter --color bw --borders none 01729-time-series.txt figure-3.png
+301 history | tail -n 5 > redo-figure-3.sh
+```
+
+- open up `redo-figure-3.sh` and edit out the line numbers and the last line where `history` command was called.
+- Now you have an accurate record of the useful command sequence.
+
+- NOTE: The shell ALWAYS adds commands to the log BEFORE running it. This is because if a command causes something to crash or hang, it would be useful to know what that command was for investigative purposes.
+
