@@ -142,3 +142,13 @@ done
 
 - The `-x` option will cause `bash` to run in debug mode, which prints out each command as it is run.
 - It can be useful to identify where the error is occurring.
+
+## Summary
+
+- Save commands in files (usually called shell scripts) for re-use
+- `bash [filename]` runs the commands saved in a file
+- `$@` refers to all of a shell script's command line arguments
+- `$1`, `$2`, etc., refer to the first, second command line argument, respectively
+- Place variables in quotes if the values might have spaces in them
+- Letting the user decide what files to process is more flexible and more consistent with built-in Unix commands
+- Make sure to comment the scripts so that the user understands its function and usage
