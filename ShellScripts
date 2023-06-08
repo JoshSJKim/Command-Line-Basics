@@ -133,3 +133,12 @@ done
 
 - In practice, shell scripts are developed by running commands at the shell prompt a few times to ensure that the commands are working as intended.
 - Once the commands deem 'fool-proof', `history` command can be used to recall the desired commands to be saved to a script file.
+
+### bash debug mode (-x)
+
+- If in any case a script is not working as intended, run the script with an `-x` option.
+
+`bash -x do-stats.sh NENE*A.txt NENE*B.txt`
+
+- The `-x` option will cause `bash` to run in debug mode, which prints out each command as it is run.
+- It can be useful to identify where the error is occurring.
