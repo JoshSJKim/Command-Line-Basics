@@ -58,3 +58,40 @@ Today it is not working
 - grep has many useful options. use `--help` or `man grep` to find out more
   
 `$ grep --help`
+
+### Find
+
+- While `grep` finds lines in files, `find` command finds the files themselves.
+- `find` also has many options.
+
+- `$ find .` will find the names of every file and directory in and under the current working directory.
+- `$ find . -type d` will find all directories in and under the current working directory.
+- `$ find . -type f` will find all files in and under the current working directory.
+- Note that the objects found are not listed in any particular order.
+
+- `$ find . -name *.txt` can be used in an attempt to find all files with a `.txt` extension.
+  - But the above command will cause the shell to expand the wildcard character `*` before the command runs.
+  - In other words, it will search for `.txt` files only in the current working directory.
+
+- `$ find . -name "*.txt"` will prevent the shell from expanding the wildcard `*`, which will allow `find` to actually find all files with a `.txt` extension.
+
+- Remember that the power of the command line lies in combining the right tools.
+- For example, you could enclose the `find` command portion in `$()` and run another command on that.
+
+`$ wc -l $(find . -name "*.txt")`
+
+- The above command will first find all files with a `.txt` extension, and then print the number of lines in each of those files (`wc -l`)
+
+- Another useful tool combination is `grep` and `find`
+
+`$ grep "searching" $(find . -name "*.txt")` 
+
+- The above command will first find all files with a `.txt` extension, and `grep` will look through those files and match the specified target pattern 'searching'.
+
+## Summary
+
+- `find` finds files with specific properties that match patterns
+- `grep` selects lines in files that match patterns
+- `--help` is an option supported by many bash commands, and programs that can be run from within Bash, to display more information on how to use these commands or programs.
+- `man [command]` displays the manual page for the specified command
+- `$([command])` inserts a command's output in place
