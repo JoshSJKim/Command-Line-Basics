@@ -1,0 +1,60 @@
+# Part 7
+
+## Finding Things
+
+### grep
+
+- `grep` is a contraction of 'global/regular expression/print'.
+- It is a useful command line program that finds and prints lines in files that match a specified pattern in a specified file.
+
+`grep [target pattern] [target file]`
+
+### Options
+
+- `grep` on its own will match any word that contains the specified pattern
+
+`$ grep The haiku.txt`
+
+- The above command will generate the following output
+
+```zsh
+The Tao that is seen
+"My Thesis" not found
+```
+
+- Notice that "Thesis" matches the target pattern "The".
+
+- In order to match the target pattern on its own, use the `-w` option
+
+`$ grep -w The haiku.txt`
+
+```zsh
+The Tao is seen
+```
+
+- Make note that the target pattern in case sensitive by default
+
+- When searching for not a single word, but a phrase, use quotes around the target pattern
+
+`$ grep -w "is not" haiku.txt`
+
+```zsh
+Today it is not working
+```
+
+- You don't need to use quotes when searching for single word patters, but it is useful to use quotes when searching for multiple words.
+- It is good practice to use quotes for the target pattern, even for single word patterns, because it helps to visually identify the target pattern in the command line.
+
+- Another useful option is the `-n` option, which numbers the lines that match.
+- `-i` option will make the target pattern case-insensitive
+- `-v` option will invert the search. In other words, the shell will omit the lines that contain the target pattern and display the lines that do not contain the target pattern.
+
+- use the `-r` option to search for a pattern recursively through a set of files in subdirectories
+
+`$ grep -r yesterday .`
+
+- The above command will search through the current working directory and match any lines in files that have the word 'yesterday'.
+
+- grep has many useful options. use `--help` or `man grep` to find out more
+  
+`$ grep --help`
