@@ -84,7 +84,7 @@ Today it is not working
 
 - Another useful tool combination is `grep` and `find`
 
-`$ grep "searching" $(find . -name "*.txt")` 
+`$ grep "searching" $(find . -name "*.txt")`
 
 - The above command will first find all files with a `.txt` extension, and `grep` will look through those files and match the specified target pattern 'searching'.
 
